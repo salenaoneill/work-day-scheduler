@@ -4,8 +4,12 @@ var date_today = dayjs().format('dddd, MMMM, D');
 // in the html.
 $(function () {
     $('.saveBtn').on("click", function() {
-        //save text in local storage
+        var schedule_text = $(this).siblings(".description").val();
+        var schedule_hour = $(this).parent().attr("id");
+        localStorage.setItem(schedule_hour, schedule_text);
     })
+
+
 
     function timeblock_color_set(){
         var current_hour = dayjs().hour()
@@ -34,7 +38,11 @@ $(function () {
     };
     timeblock_color_set();
     
-    
+    $(".time-block .description").each(function(){
+        var schedule_hour = $(this).parent().attr("id"); 
+        var this_hour = localStorage.getItem(schedule_hour);
+        $(this).text(this_hour);
+    });
     // TODO: Add a listener for click events on the save button. This code should
     // use the id in the containing time-block as a key to save the user input in
     // local storage. HINT: What does `this` reference in the click listener
