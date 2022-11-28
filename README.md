@@ -15,3 +15,4 @@ All the user has to do to use this webpage is type their hourly events into the 
 MIT License
 
 ## Deployed Link
+https://salenaoneill.github.io/work-day-scheduler/Develop/
